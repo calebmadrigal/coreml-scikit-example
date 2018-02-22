@@ -11,8 +11,8 @@ model = LogisticRegression()
 model.fit(iris.data, iris.target)
 
 # Make a prediction
-print 'prediction with scikit model:'
-print iris.target_names[model.predict([[1.0, 2.0, 2.0, 3.0]])]
+print('prediction with scikit model:')
+print(iris.target_names[model.predict([[1.0, 2.0, 2.0, 3.0]])])
 
 # Dumping the model with joblib for comparison
 joblib.dump(model, 'iris.pkl')
@@ -25,7 +25,7 @@ coreml_model.save('iris.mlmodel')
 loaded_model =  coremltools.models.MLModel('iris.mlmodel')
 
 # You can check the model's specifications
-print loaded_model.get_spec()
+print(loaded_model.get_spec())
 
 input_data = {
     'sepal length (cm)': 1.0,
@@ -33,5 +33,6 @@ input_data = {
     'petal length (cm)': 2.0,
     'petal width (cm)': 3.0
 }
-print 'prediction with coreml model:'
-print loaded_model.predict(input_data)
+print('prediction with coreml model:')
+print(loaded_model.predict(input_data))
+
