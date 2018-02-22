@@ -15,14 +15,14 @@ print('prediction with scikit model:')
 print(iris.target_names[model.predict([[1.0, 2.0, 2.0, 3.0]])])
 
 # Dumping the model with joblib for comparison
-joblib.dump(model, 'iris.pkl')
+joblib.dump(model, 'iris_logistic_regression.pkl')
 
 # Export and save the CoreML model
 coreml_model = coremltools.converters.sklearn.convert(model, iris.feature_names, 'iris class')
-coreml_model.save('iris.mlmodel')
+coreml_model.save('iris_logistic_regression.mlmodel')
 
 # Load back the model
-loaded_model =  coremltools.models.MLModel('iris.mlmodel')
+loaded_model =  coremltools.models.MLModel('iris_logistic_regression.mlmodel')
 
 # You can check the model's specifications
 print(loaded_model.get_spec())

@@ -1,2 +1,2 @@
-iris.mlmodel
-iris.pkl
+*.pkl
+*.mlmodel
